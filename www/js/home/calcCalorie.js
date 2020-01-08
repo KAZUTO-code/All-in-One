@@ -16,14 +16,14 @@ function calc()
     {
         //goalCal = ((fat * (todayWeight - goalWeight)) / (duration));
         //goalCal = Math.round(goalCal * 10) / 10; //小数点以下切り捨て
-        goalCal = 200;
+        goalCal = 200; // remaining calorie
         if (goalCal < 0)
         {
-            document.write("0kg");
+            document.write("Congratulations on achievement!!");
         }
         else
         {
-            document.write(goalCal + "kg");
+            document.write(goalCal + "kcal");
         }
         if (goalCal >= 1000)
         {
@@ -60,7 +60,9 @@ function getData()
     if (data === null)
     {
         return null;
-    } else {
+    } 
+    else 
+    {
         data = JSON.parse(data);
         if (data[key] === null)
         {
