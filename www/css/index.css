@@ -1,0 +1,67 @@
+/* This is a CSS file */
+
+.form 
+{
+    text-align: left;
+    font-family: "Meiryo UI";
+}
+
+.style1 
+{
+    text-align: left;
+    margin-bottom: 2em;
+}
+
+.style2 
+{
+    padding-left: 3em;
+}
+
+.style3
+{
+    padding-left: 2em;
+}
+
+.style4
+{
+    padding-left: 5em;
+}
+
+.style5
+{
+    padding-left: 5em;
+}
+
+.btn-flat-double-border 
+{
+    margin-top: 1em;
+    display: inline-block;
+    text-decoration: none;
+    color: #4d6d86;
+    border: double 2px #67c5ff;
+    border-radius: 2px;
+    transition: .4s;
+}
+.btn-flat-double-border:hover 
+{
+    background: #fffbef;
+}
+.btn-flat-double-border2
+{
+    margin-top: 0.5em;
+    display: inline-block;
+    text-decoration: none;
+    color: #4d6d86;
+    border: double 2px #67c5ff;
+    border-radius: 2px;
+    transition: .4s;
+}
+.btn-flat-double-border:hover2
+{
+    background: #fffbef;
+}
+
+html, body
+{
+    overflow: hidden;
+}

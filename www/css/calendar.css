@@ -1,0 +1,23 @@
+.calendar
+{
+    font-size: 200%;
+    font-family: Meiryo;
+}
+
+.btn1
+{
+    width:25%;
+    height:50px;
+    font-size: 1.5em;
+}
+
+.btn2 
+{
+    font-size: 0.8em;
+    text-decoration: none;
+    color: black;
+}
+.btn2:active 
+{
+    color: orange;
+}

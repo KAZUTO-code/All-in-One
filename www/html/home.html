@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../css/tab.css">
+    </head>
+    <body>
+        <div class="cp_tab">
+            <input type="radio" name="cp_tab" id="tab1_1" aria-controls="first_tab01" checked>
+            <label for="tab1_1">Home</label>
+            <input type="radio" name="cp_tab" id="tab1_2" aria-controls="second_tab01">
+            <label for="tab1_2">Schedule</label>
+            <input type="radio" name="cp_tab" id="tab1_3" aria-controls="third_tab01">
+            <label for="tab1_3">Registration</label>
+            <input type="radio" name="cp_tab" id="tab1_4" aria-controls="force_tab01">
+            <label for="tab1_4">Setting</label>
+            <div class="cp_tabpanels">
+                <div id="first_tab01" class="cp_tabpanel">
+                    <iframe src="./main.html" width="100%" height="100%" class="frame"></iframe>
+                </div>
+                <div id="second_tab01" class="cp_tabpanel">
+                    <iframe src="./schedule.html" width="100%" height="100%" class="frame"></iframe>
+                </div>
+                <div id="third_tab01" class="cp_tabpanel">
+                    <iframe src="./registration.html" width="100%" height="100%" class="frame"></iframe>
+                </div>
+                <div id="force_tab01" class="cp_tabpanel">
+                    <iframe src="./setting.html" width="100%" height="100%" class="frame"></iframe>
+                </div>
+            </div>
+        </div>
+        <script>
+            function backToIndex() 
+            {
+                window.location.href = '../index.html';
+            }
+            function update() 
+            {
+                location.reload();
+            }
+        </script>
+    </body>
+</html>
+

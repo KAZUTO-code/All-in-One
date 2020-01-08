@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>All in One</title>
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <!--<link rel="stylesheet" type="text/css" href="../css/setting.css">
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+        <script src = "http://code.jquery.com/jquery-3.4.1.min.js"></script>-->
+        <script src="../js/home/day.js"></script>
+        <script src="../js/home/display.js"></script>
+        <script src="../js/home/calcCalorie.js"></script>
+    </head>
+    <body>
+        <div class="text">
+            <br>
+            <span class="caption">今の体重</span>
+            <a class = "item"><script>showRegistrationStatus()</script></a>
+            <span class="caption">目標体重</span>
+            <a class = "item"><script>getGoalWeight()</script></a>
+            <span class="exception">目標消費カロリー</span>
+            <a class = "item" id = "calorie"><script>calc()</script></a>
+            <span class="caption">経過日数</span>
+            <!--
+            <a class = "item"><table class="BunsuTbl"><tbody><tr class="trBunshi"><td class="Sei0" rowspan="2"></td><td class="Bunshi"><script>elapsed()</script></td></tr><tr class="trBunbo"><td class="Bunbo"><script>total()</script></td></tr></tbody></table></a>
+            -->
+            <div class = "sample-box"><script>elapsed()</script></div>
+            <a class = "gap"><script>total()</script></a>
+            <span class="caption">メッセージ</span>
+            <a class = "item"><script>message()</script></a>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang = "ja">
+  <head>
+    <meta charset = "UTF-8">
+    <link rel = "stylesheet" type = "text/css" href = "../css/setting.css">
+    <script src = "../js/setting.js"></script>
+    <title>設定</title>
+  </head>
+  <body>
+      <div align = left class = item>
+          <b>　目標体重:　</b>
+          <script>getGoalWeight()</script>
+      </div>
+      <div align = left class = item>
+          <b>最初の体重:　</b>
+          <script>getStartWeight()</script>
+      </div>
+      <div align = left class = item>
+          <b>　　　期間:　</b>
+          <script>getDuration()</script>
+      </div>
+      <div align = left class = item>
+          <b>　　開始日:　</b>
+          <script>getStartedDay()</script>
+      </div>
+      <div align = left class = item>
+          <b>　　　性別:　</b>
+          <script>getSex()</script>
+      </div>
+      <div align = left class = item>
+          <b>　　　年齢:　</b>
+          <script>getAge()</script>
+      </div>
+      <div align = left class = item>
+          <input type = "button" value = "初期化" onclick = "deleteAll()" style = "width: 10%; padding: 10px; font-size: 30px; margin-left: 2.5%;"/>
+      </div>
+  </body>
+</html>

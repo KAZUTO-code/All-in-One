@@ -1,0 +1,17 @@
+.information
+{
+  content: "\A";
+  white-space: pre-line;
+  text-align: left;
+}
+
+.item::before, .item::after
+{
+    content: "\A";
+    white-space: pre;
+}
+
+html, body
+{
+    overflow: hidden;
+}
