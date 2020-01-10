@@ -7,16 +7,32 @@
         <script src = "../js/calendar.js"></script>
     </head>
     <body>
-        <div id = "calendar"></div>
         <div>
-            <script>plot(0)</script>
-        </div>
-        <div >
-            <center>
-                <button class=btn1 id = "last" onclick = "plot2(this,-1)">前の月</button>
-                <button class=btn1 id = "stay" onclick = "plot2(this,0)">今の月</button>
-                <button class=btn1 id = "next" onclick = "plot2(this,1)">次の月</button>
-            </center>
+            <div id = "calendar"></div>
+            <div>
+                <script>plot(0)</script>
+            </div>
+            <div >
+                <center>
+                    <button class=btn1 id = "last" onclick = "plot2(this,-1)">前の月</button>
+                    <button class=btn1 id = "stay" onclick = "plot2(this,0)">今の月</button>
+                    <button class=btn1 id = "next" onclick = "plot2(this,1)">次の月</button>
+                </center>
+            </div>
+            <div class = "center">
+                <div align = "center" class = "item2">予定</div>
+                <div align = "center" class = "item">
+                    内容:
+                    <input id = "scheduleText" type = "text" placeholder= "内容" size = "20" />
+                </div>
+                <div align = "center" class = "item">
+                    <input id = "button" type = "button" value = "登録" onclick = "inputSchedule()" />
+                </div>
+                <div align = "center" class = "item">
+                    <script>showSchedule()</script>
+                    <script>flagReset()</script>
+                </div>
+            </div>
         </div>
     </body>
 </html>
