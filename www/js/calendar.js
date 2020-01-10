@@ -32,12 +32,10 @@ function plan(myYear,myMonth,myDay)
     localStorage.setItem("Date", myDay);
     var day = [myYear,myMonth,myDay];
     var message = myYear + "年" + myMonth + "月" + myDay + "日\n";
-    //weight = obtain(day);
-    if(false)
+    weight = obtain(day);
+    if(weight !== null)
     {
-        //alert(myMonth+"月"+myDay+"日の体重 : 40kg");
-        //alert(myMonth+"月"+myDay+"日の体重 : "+weight+"kg");
-        //message += "体重: " weight + "kg\n";
+        message += "体重: " weight + "kg\n";
     }
     else
     {
