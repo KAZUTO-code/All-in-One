@@ -35,7 +35,7 @@ function plan(myYear,myMonth,myDay)
     weight = obtain(day);
     if(weight !== null)
     {
-        message += "体重: " weight + "kg\n";
+        message += "体重: " + weight + "kg\n";
     }
     else
     {
