@@ -15,7 +15,6 @@ function obtain(day)
     var data = localStorage.getItem("WeightData");
     var today = String(day[0]) + "-" + String(day[1]) + "-" + String(day[2]);
     data = JSON.parse(data);
-    console.log(data);
     return data[today];
 };
 
@@ -33,13 +32,12 @@ function plan(myYear,myMonth,myDay)
     var day = [myYear,myMonth,myDay];
     var message = myYear + "年" + myMonth + "月" + myDay + "日\n";
     weight = obtain(day);
-    if(weight !== null)
+    if(weight != null)
     {
         message += "体重: " + weight + "kg\n";
     }
     else
     {
-        //alert(myMonth+"月"+myDay+" 体重が入力されていません");
         message += "体重が入力されていません\n";
     }
     message += "予定\n";
@@ -345,7 +343,6 @@ function idRead(command, plotNow, num)
         year = date.getFullYear();
         month = date.getMonth() + 1;
     }
-    //num = plotNow;
     year = parseInt(year);
     month = parseInt(month) + num;
     count = 0;
@@ -365,7 +362,6 @@ function idRead(command, plotNow, num)
         }
         year = year + count;
     }
-    //window.alert(month);
     plotMonth = month;
     if (String(month).length == 1)
     {
