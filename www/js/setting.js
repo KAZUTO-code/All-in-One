@@ -1,12 +1,8 @@
 function deleteAll() 
 {
-    var answer = confirm("本当に初期化しますか?")
-    if (answer) 
-    {
-        localStorage.clear();
-        window.alert("初期化完了しました。");
-        window.parent.backToIndex();
-    }
+    localStorage.clear();
+    window.alert("初期化完了しました。");
+    window.parent.backToIndex();
 }
 
 function getStartWeight() 
