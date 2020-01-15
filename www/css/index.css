@@ -32,35 +32,6 @@
     padding-left: 5em;
 }
 
-.btn-flat-double-border 
-{
-    margin-top: 1em;
-    display: inline-block;
-    text-decoration: none;
-    color: #4d6d86;
-    border: double 2px #67c5ff;
-    border-radius: 2px;
-    transition: .4s;
-}
-.btn-flat-double-border:hover 
-{
-    background: #fffbef;
-}
-.btn-flat-double-border2
-{
-    margin-top: 0.5em;
-    display: inline-block;
-    text-decoration: none;
-    color: #4d6d86;
-    border: double 2px #67c5ff;
-    border-radius: 2px;
-    transition: .4s;
-}
-.btn-flat-double-border:hover2
-{
-    background: #fffbef;
-}
-
 html, body
 {
     overflow: hidden;
