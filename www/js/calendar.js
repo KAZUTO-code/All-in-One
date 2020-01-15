@@ -424,9 +424,9 @@ function inputSchedule()
         window.alert("内容が入力されていません。");
         return;
     }
-    if (text.length > 20)
+    if (text.length > 10)
     {
-        window.alert("内容が長すぎます。\n20文字までにしてください。");
+        window.alert("内容が長すぎます。\n10文字までにしてください。");
         return;
     }
     var data = localStorage.getItem("ScheduleData");
