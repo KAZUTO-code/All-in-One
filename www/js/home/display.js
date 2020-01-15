@@ -58,7 +58,7 @@ function message()
     var num = ["トレーニングしませんか？", "ランニングしませんか？", "ヨガしませんか？", "サイクリングしませんか？", "ストレッチしませんか？", "今日の体重を入力しましょう!", "厳しければ,目標を再設定しましょう!", "今日も1日頑張りましょう!", "今日も1日お疲れ様でした!", "目標達成!今の体重を維持しましょう!"];
 
     var now = new Date(Date.now());
-    var hour = now.getHours();
+    var hour = 12;
 
     if (hour >= 3 && hour < 6) 
     {
@@ -86,7 +86,7 @@ function message()
         } 
         else 
         {
-            if (calc2() == 0) 
+            if (calc2() <= 0) 
             {
                 document.write(num[9]);
             } 
@@ -144,25 +144,79 @@ function checkGoal()
 
 function calc2()
 {
-    var data = getData();
     var setData = getSetData();
-    var goalCal = 0;
-    var todayWeight = data;
+    var weightData = getData();
+    var goalCal;
+    var todayWeight = weightData.data;
     var goalWeight = setData["goal"];
-    var duration = setData["duration"];
-    var fat = 9000;
+    var duration = setData["duration"] - weightData.date; //残り日数
+    var fat = 9000; // 固定値
 
-    if (todayWeight === null || goalWeight === null || duration === null) 
+    goalCal = ((fat * (todayWeight - goalWeight)) / (duration));
+    goalCal = Math.round(goalCal * 10) / 10; //小数点以下切り捨て
+    
+    return goalCal;
+}
+
+function getData()
+{
+    var setData = getSetData();
+    var data = localStorage.getItem("WeightData");
+    if (data === null) 
     {
-        document.write("エラーが発生しています");
-        return goalCal;
-    } 
-    else 
+        return null;
+    }
+    else
     {
-        goalCal = ((fat * (todayWeight - goalWeight)) / (duration));
-        return goalCal;
+        data = JSON.parse(data); 
+    }
+    var dateObject = new Date();
+    var start = setData["startedDay"];
+    dateObject.setFullYear(start.slice(0, 4));
+    dateObject.setMonth(start.slice(5, 7) - 1);
+    dateObject.setDate(start.slice(8, 10));
+    var limit = setData["duration"];
+    var retData = new Object();
+    for (var i = 0; i < limit;) // 期間内の最新データを取得
+    {
+        var year = dateObject.getFullYear();
+        var month = dateObject.getMonth() + 1;
+        var date = dateObject.getDate();
+        if (month < 10) 
+        {
+            month = "0" + month.toString();
+        }
+        if (date < 10) 
+        {
+            date = "0" + date.toString();
+        }
+        var key = year + "-" + month + "-" + date;
+        if (data[key] != null) 
+        {
+            retData.data = data[key];
+            retData.date = i;
+            console.log(i);
+        }
+        dateObject.setDate(dateObject.getDate() + 1);
+        ++i;
+    }
+    return retData; // data : 体重, date : 日付
+}
+
+function getSetData()
+{
+    var data = localStorage.getItem("SetData");
+    if (data === null)
+    {
+        return null;
+    }
+    else
+    {
+        data = JSON.parse(data);
+        return data;
     }
 }
+
 
 function elapsed() 
 {
@@ -187,8 +241,6 @@ function total()
 }
 
 document.addEventListener('touchmove', function(e) {e.preventDefault();}, {passive: false});
-
-/*以下変更点 */
 
 function changeGauge(numerator)
 {
