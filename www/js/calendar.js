@@ -450,15 +450,10 @@ function inputSchedule()
         window.alert("予定がいっぱいです。\nこれ以上登録できません。");
         return;
     }
-    var answer = confirm("予定を登録しますか？");
-    if (answer)
-    {
-        data[key] = text;
-        localStorage.setItem("ScheduleData", JSON.stringify(data));
-        window.alert("登録完了しました。");
-        localStorage.setItem("MonthChange", "True");
-        location.reload();
-    }
+    data[key] = text;
+    localStorage.setItem("ScheduleData", JSON.stringify(data));
+    localStorage.setItem("MonthChange", "True");
+    location.reload(); 
 }
 
 function showSchedule()
@@ -527,7 +522,7 @@ function showSchedule()
     while (data[key] !== undefined)
     {
         document.write("<ul>");
-        document.write("<input id = 'button' type = 'button' value = '削除' onclick = 'deleteSchedule(" + year + ", " +  month + ", " + date + ", " + number + ")' style = 'font-size: 10px;' />")
+        document.write("<input id = 'button' type = 'button' value = '削除' onclick = 'deleteSchedule(" + year + ", " +  month + ", " + date + ", " + number + ")' style = 'font-size: 11px;' />")
         document.write("</ul>");
         number++;
         key = dateKey + "/" + number;
@@ -628,11 +623,6 @@ function deleteSchedule(year, month, date, number)
         date = "0" + date.toString();
     }
     var dateKey = year + "-" + month + "-" + date;
-    var answer = confirm("予定を削除しますか?");
-    if (!answer)
-    {
-        return;
-    }
     var deleteKey = dateKey + "/" + number;
     var data = localStorage.getItem("ScheduleData");
     data = JSON.parse(data);
