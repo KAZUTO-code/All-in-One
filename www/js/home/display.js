@@ -55,7 +55,7 @@ function getGoalWeight()
 
 function message() 
 {
-    var num = ["トレーニングしませんか？", "ランニングしませんか？", "今日の体重を入力しましょう!", "入力してない日があります。確認しましょう!", "厳しければ,目標を再設定しましょう!", "今日も1日頑張りましょう!", "今日も1日お疲れ様でした!", "目標達成!今の体重を維持しましょう!"]; // 増加予定...
+    var num = ["トレーニングしませんか？", "ランニングしませんか？", "ヨガしませんか？", "サイクリングしませんか？", "ストレッチしませんか？", "今日の体重を入力しましょう!", "厳しければ,目標を再設定しましょう!", "今日も1日頑張りましょう!", "今日も1日お疲れ様でした!", "目標達成!今の体重を維持しましょう!"];
 
     var now = new Date(Date.now());
     var hour = now.getHours();
@@ -66,35 +66,31 @@ function message()
     } 
     else if (hour >= 6 && hour < 9) 
     {
-        document.write(num[5]);
+        document.write(num[7]);
     } 
     else if (hour >= 21 || hour < 3) 
     {
-        document.write(num[6]);
+        document.write(num[8]);
     } 
     else 
     {
-        var random = Math.floor(Math.random() * 2);
+        var random = Math.floor(Math.random() * 5);
 
         if (!checkToday()) 
         {
-            document.write(num[2]);
-        } 
-        else if (!checkHist()) 
-        {
-            document.write(num[3])
+            document.write(num[5]);
         } 
         else if (!checkGoal()) 
         {
-            document.write(num[4])
+            document.write(num[6])
         } 
         else 
         {
             if (calc2() == 0) 
             {
-                document.write(num[7]);
+                document.write(num[9]);
             } 
-            else 
+            else
             {
                 document.write(num[random]);
             }
@@ -132,37 +128,6 @@ function checkToday()
         result = true;
     }
     return result;
-}
-
-function checkHist() 
-{
-    var data = JSON.parse(localStorage.getItem("SetData"));
-    var n = JSON.parse(localStorage.getItem("WeightData"));
-    var startedDay = data["startedDay"].split("-");
-    var limit = new Date(startedDay[0], startedDay[1] - 1, startedDay[2]);
-    var now = new Date(Date.now());
-
-    while (limit < now) 
-    {
-        var year = now.getFullYear();
-        var month = now.getMonth() + 1;
-        if (month < 10) 
-        {
-            month = "0" + month.toString();
-        }
-        var date = now.getDate();
-        if (date < 10) 
-        {
-            date = "0" + date.toString();
-        }
-        var key = year + "-" + month + "-" + date;
-        if (!(key in n)) 
-        {
-            return false;
-        }
-        now.setDate(now.getDate() - 1);
-    }
-    return true;
 }
 
 function checkGoal() 
