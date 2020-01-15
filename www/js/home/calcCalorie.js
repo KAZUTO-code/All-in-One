@@ -20,7 +20,7 @@ function calc()
     {
         goalCal = ((fat * (todayWeight - goalWeight)) / (duration));
         goalCal = Math.round(goalCal * 10) / 10; //小数点以下切り捨て
-        if (goalCal < 0) // 目標達成
+        if (goalCal <= 0) // 目標達成
         {
             document.write("Congratulations on achievement!!");
         }
