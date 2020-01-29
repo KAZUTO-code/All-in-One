@@ -13,29 +13,20 @@ function inputWeight()
         window.alert("エラー\n正しい数値を入力してください。");
         return;
     }
-    var dialog = weight + "kgでよろしいですか？";
-    if (isRegistered())
+    var key = makeTodayKey();
+    var data = localStorage.getItem("WeightData");
+    if (data === null)
     {
-        dialog = weight + "kgに変更しますか？";
+        data = {};
     }
-    var answer = confirm(dialog);
-    if (answer)
+    else
     {
-        var key = makeTodayKey();
-        var data = localStorage.getItem("WeightData");
-        if (data === null)
-        {
-            data = {};
-        }
-        else
-        {
-            data = JSON.parse(data);
-        }
-        data[key] = weight;
-        localStorage.setItem("WeightData", JSON.stringify(data));
-        window.alert("登録完了しました。");
-        window.parent.update();
+        data = JSON.parse(data);
     }
+    data[key] = weight;
+    localStorage.setItem("WeightData", JSON.stringify(data));
+    window.alert("登録完了しました。");
+    window.parent.update();
 }
 
 function stringToNumber(text, acceptDecimal)
